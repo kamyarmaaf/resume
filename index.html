@@ -1,104 +1,467 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamyar maaf - Resume</title>
+    <title>Kamyar Maaf - Resume</title>
+    <meta name="description" content="Resume of Kamyar Maaf, Full-Stack Developer and Backend Specialist with experience in Django, React, and AI integration.">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
+        
+        :root {
+            --bg: #f8fafc;
+            --text: #0f172a;
+            --muted: #475569;
+            --border: #e5e7eb;
+            --accent: #1f2937;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+        
         .container {
-            width: 60%;
-            margin: 20px auto;
+            max-width: 900px;
+            margin: 0 auto;
             background: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.06);
         }
-        h1 {
-            color: #007a5a;
-            text-align: left;
+        
+        /* Header Section */
+        .header {
+            background: white;
+            color: var(--text);
+            padding: 36px 40px;
+            position: relative;
+            border-bottom: 1px solid var(--border);
         }
-        h2 {
-            color: #007a5a;
-            border-bottom: 2px solid #007a5a;
-            padding-bottom: 5px;
+        
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 6px;
+            font-weight: 800;
+            letter-spacing: 0.2px;
         }
+        
+        .header .title {
+            font-size: 1.05em;
+            margin-bottom: 18px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px 22px;
+            font-size: 0.95em;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-item a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Main Content */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 0;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: #fafafa;
+            padding: 28px 30px;
+            border-right: 1px solid var(--border);
+        }
+        
+        /* Main Section */
+        .main {
+            padding: 30px 34px;
+        }
+        
+        /* Section Styles */
         .section {
+            margin-bottom: 35px;
+        }
+        
+        .section-title {
+            font-size: 1.15em;
+            color: var(--accent);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+            margin-bottom: 18px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Skills */
+        .skill-category {
             margin-bottom: 20px;
         }
-        .contact-info {
+        
+        .skill-category h4 {
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            font-weight: 700;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background: #ffffff;
+            color: var(--accent);
+            padding: 4px 10px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .sidebar .skill-tag {
+            background: #ffffff;
+        }
+        
+        /* Experience & Education */
+        .experience-item, .education-item {
+            margin-bottom: 22px;
+            padding-left: 0;
+            border-left: none;
+        }
+        
+        .experience-item h3, .education-item h3 {
+            color: var(--accent);
+            font-size: 1.05em;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+        
+        .experience-item .company, .education-item .school {
+            color: var(--muted);
+            font-size: 0.98em;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+        
+        .experience-item .date, .education-item .date {
+            color: #64748b;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .experience-item ul {
+            margin-left: 18px;
+            color: #334155;
+            font-size: 0.95em;
+        }
+        
+        .experience-item ul li {
+            margin-bottom: 5px;
+        }
+        
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+        
+        .project-card {
+            background: #ffffff;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .project-card:hover {
+            box-shadow: none;
+        }
+        
+        .project-card h4 {
+            color: var(--accent);
+            margin-bottom: 6px;
+            font-size: 1.02em;
+            font-weight: 700;
+        }
+        
+        .project-card p {
+            color: #475569;
+            font-size: 0.92em;
+            line-height: 1.55;
+        }
+        
+        .project-tech {
+            margin-top: 8px;
+            font-size: 0.85em;
+            color: #334155;
+            font-weight: 600;
+        }
+        
+        /* Languages */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 10px 12px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        
+        .language-name {
+            font-weight: 600;
+        }
+        
+        .language-level {
+            color: var(--muted);
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        /* Icons */
+        .icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            color: var(--muted);
+        }
+        
+        /* Summary Section */
+        .summary {
+            font-size: 1em;
+            line-height: 1.75;
+            color: #334155;
             text-align: left;
         }
-        ul li {
-            margin: 5px 0;
+        
+        /* Print Styles */
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+            .header { background: white !important; border-bottom: 1px solid #ddd; }
+            .section-title { color: #111827 !important; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content { grid-template-columns: 1fr; }
+            .project-grid { grid-template-columns: 1fr; }
+            .header { padding: 28px 22px; }
+            .sidebar { padding: 22px; border-right: none; border-top: 1px solid var(--border); }
+            .main { padding: 24px; }
+            .header h1 { font-size: 1.8em; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Kamyar maaf</h1>
-        <p class="contact-info">Python/Django Developer</p>
-        <p class="contact-info">📧 Kamyarmf1@gmail.com &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp; 📍 Guilan, Iran </p>
+        <!-- Header -->
+        <header class="header">
+            <h1>Kamyar Maaf</h1>
+            <div class="title">Full-Stack Developer | Backend Specialist</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    <span>+98 938 298 9027</span>
+                </div>
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    <a href="mailto:kamyarmf1@gmail.com">kamyarmf1@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                    <span>Guilan, Iran</span>
+                </div>
+                <div class="contact-item">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <a href="https://github.com/kamyarmaaf" target="_blank" rel="noopener noreferrer">github.com/kamyarmaaf</a>
+                </div>
+            </div>
+        </header>
 
-    <div class="section">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python</li>
-            <li>Django</li>
-            <li>SQL(sqlite,mysql,postgresql)</li>
-            <li>Django REST Framework (DRF)</li>
-            <li>Machine Learning</li>
-            <li>HTML</li>
-            <li>CSS</li>
-			<li>JS</li>
-            <li>Git</li>
-        </ul>
-    </div>
+        <div class="content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Technical Skills -->
+                <div class="section">
+                    <h2 class="section-title">Technical Skills</h2>
+                    
+                    <div class="skill-category">
+                        <h4>Backend Development</h4>
+                        <div class="skill-list">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">Django REST</span>
+                            <span class="skill-tag">SQL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Frontend Development</h4>
+                        <div class="skill-list">
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4>Tools & Technologies</h4>
+                        <div class="skill-list">
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Hugging Face</span>
+                            <span class="skill-tag">n8n</span>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="section">
-        <h2>Projects</h2>
-		<p><strong>Django News Website</strong> - Developed a news website focused on the latest updates in the automotive industry</p>
-        <ul>
-            <li>ottomo.ir</li>
-            <li>Django Admin</li>
-            <li>Django models</li>
-            <li>implemented SEO strategies for better reach</li>
-			<li>dedicated car features section </li>
-			<li>detailed specifications for each car </li>
-			
-        </ul>
-        <p><strong>Django Blog</strong> - Blog application with Django</p>
-        <ul>
-            <li>Liking posts by users</li>
-            <li>Pagination of articles</li>
-			<li>watch later</li>
-			<li>comment section</li>
-        </ul>
-        <p><strong>Ludo Game Bot for telegram</strong> - professional Ludo game on telegram</p>
-        <ul>
-            <li>supporting 2-4 players</li>
-            <li>real time update</li>
-        </ul>
-    </div>
-	
-	<div class="section">
-        <h2>Languages</h2>
-        <ul>
-            <li>Persian</li>
-            <li>English</li>
-            <li>Deutsch(B1)</li>
-        </ul>
-    </div>
+                <!-- Languages -->
+                <div class="section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="language-item">
+                        <span class="language-name">Persian</span>
+                        <span class="language-level">Native</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">English</span>
+                        <span class="language-level">Intermediate</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">German</span>
+                        <span class="language-level">Elementary</span>
+                    </div>
+                </div>
 
-    <div class="section">
-        <h2>Education</h2>
-        <p><strong>University of Shahid Rajaei</strong>, B.Sc in Mechanical Engineering (2016 – 2020)</p>
-        <p><strong>University of Guilan</strong>, M.Sc in Applied Design with an specialization in Robotics(2023 – present)</p>
-    </div>
-</div>
+                <!-- Soft Skills -->
+                <div class="section">
+                    <h2 class="section-title">Soft Skills</h2>
+                    <div class="skill-list">
+                        <span class="skill-tag">Team Collaboration</span>
+                        <span class="skill-tag">Organized</span>
+                        <span class="skill-tag">High Responsibility</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Quick Learner</span>
+                    </div>
+                </div>
+            </aside>
 
+            <!-- Main Content -->
+            <main class="main">
+                <!-- Professional Summary -->
+                <div class="section">
+                    <h2 class="section-title">Professional Summary</h2>
+                    <p class="summary">
+                        Passionate Full-Stack Developer with a strong foundation in backend development and a growing expertise in AI integration. 
+                        Experienced in building scalable web applications using Django and modern frontend technologies. 
+                        Skilled in implementing machine learning solutions and automation workflows. 
+                        Seeking opportunities to contribute to innovative projects while expanding technical expertise.
+                    </p>
+                </div>
+
+                <!-- Experience -->
+                <div class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    <div class="experience-item">
+                        <h3>Backend Developer Intern</h3>
+                        <div class="company">Afra Ertebatat Shomal</div>
+                        <div class="date">3 Months | 2024</div>
+                        <ul>
+                            <li>Developed and implemented RESTful APIs using Django and Django REST Framework</li>
+                            <li>Integrated AI models using Hugging Face platform for natural language processing tasks</li>
+                            <li>Created and managed automation workflows using n8n for business process optimization</li>
+                            <li>Collaborated with cross-functional teams to deliver high-quality solutions</li>
+                            <li>Participated in code reviews and debugging sessions to maintain code quality</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <h3>Master of Science - Applied Design</h3>
+                        <div class="school">University of Guilan</div>
+                        <div class="date">Currently Enrolled</div>
+                    </div>
+                    <div class="education-item">
+                        <h3>Bachelor of Science - Mechanical Engineering</h3>
+                        <div class="school">Shahid Rajaee Teacher Training University, Tehran</div>
+                        <div class="date">Graduated</div>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="section">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="project-grid">
+                        <div class="project-card">
+                            <h4>Ottomo.ir</h4>
+                            <p>Automotive news and review platform with comprehensive car comparison features and specifications database.</p>
+                            <div class="project-tech">Tech: Django, React, PostgreSQL</div>
+                        </div>
+                        <div class="project-card">
+                            <h4>Zer0team.ir</h4>
+                            <p>AI-powered auditing system designed for unions and organizations with automated report generation.</p>
+                            <div class="project-tech">Tech: Python, Machine Learning, Django</div>
+                        </div>
+                        <div class="project-card">
+                            <h4>TrashLive</h4>
+                            <p>Real-time football results platform with integrated social features and live commentary system.</p>
+                            <div class="project-tech">Tech: React, WebSocket, Django</div>
+                        </div>
+                        <div class="project-card">
+                            <h4>O-Cam</h4>
+                            <p>Online examination system with real-time cheating detection using computer vision for educational institutions.</p>
+                            <div class="project-tech">Tech: Python, OpenCV, Django</div>
+                        </div>
+                        <div class="project-card">
+                            <h4>D&D Game</h4>
+                            <p>Online Dungeons & Dragons game featuring AI-powered live storytelling and dynamic narrative generation.</p>
+                            <div class="project-tech">Tech: React, AI/ML, WebSocket</div>
+                        </div>
+                        <div class="project-card">
+                            <h4>Jenab Amooz</h4>
+                            <p>Educational platform for children using RAG technology with an engaging character-based learning approach.</p>
+                            <div class="project-tech">Tech: Python, RAG, NLP, Django</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
 </body>
 </html>
